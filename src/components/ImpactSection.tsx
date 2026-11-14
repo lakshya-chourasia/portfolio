@@ -33,8 +33,13 @@ export const ImpactSection: React.FC = () => {
             {/* Main blurred motion portrait */}
             <div className="relative w-64 sm:w-72 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-xl border border-neutral-300">
               <img
-                src="/images/impact_motion.png"
-                alt="Michael creative direction motion portrait"
+                src="/images/impact_motion.webp"
+                alt="Creative direction motion portrait"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/impact_motion.png';
+                }}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -42,8 +47,13 @@ export const ImpactSection: React.FC = () => {
             {/* Floating smaller high-contrast red portrait */}
             <div className="absolute -right-2 sm:right-6 -bottom-6 sm:-bottom-8 w-36 sm:w-44 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-2xl border-2 border-white">
               <img
-                src="/images/impact_red.png"
-                alt="Michael dramatic lighting portrait"
+                src="/images/impact_red.webp"
+                alt="Dramatic lighting portrait"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/impact_red.png';
+                }}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>

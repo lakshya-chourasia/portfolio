@@ -30,11 +30,16 @@ export const CtaSection: React.FC = () => {
         <div className="relative w-full rounded-sm overflow-hidden bg-neutral-900 min-h-[500px] p-5 sm:p-14 shadow-2xl flex items-center border border-neutral-800">
           {/* Background Image / Ambient Lighting */}
           <div className="absolute inset-0 z-0">
-            <img
-              src="/images/cta_bg.png"
-              alt="Fiery abstract ambient backdrop"
-              className="w-full h-full object-cover opacity-60 mix-blend-screen scale-105"
-            />
+            <picture className="contents">
+              <source srcSet="/images/cta_bg.webp" type="image/webp" />
+              <img
+                src="/images/cta_bg.png"
+                alt="Fiery abstract ambient backdrop"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover opacity-60 mix-blend-screen scale-105"
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
           </div>
 

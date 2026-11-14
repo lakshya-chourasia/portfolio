@@ -100,6 +100,8 @@ export const BlogsView: React.FC<BlogsViewProps> = ({
                   <img
                     src={article.image}
                     alt={article.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4 px-3 py-1 bg-[#111111]/90 backdrop-blur-sm text-white text-[10px] font-mono uppercase font-bold tracking-wider">

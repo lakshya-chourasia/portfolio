@@ -53,6 +53,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   <img
                     src={PROJECTS[0].image}
                     alt={PROJECTS[0].title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-mono font-bold text-white flex items-center gap-1.5 border border-white/20">
@@ -130,6 +132,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <img
                       src={PROJECTS[1].image}
                       alt={PROJECTS[1].title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-mono font-bold text-white flex items-center gap-1.5 border border-white/20">
@@ -198,6 +202,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <img
                       src={PROJECTS[2].image}
                       alt={PROJECTS[2].title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-mono font-bold text-white flex items-center gap-1.5 border border-white/20">

@@ -51,39 +51,64 @@ export const AboutView: React.FC<AboutViewProps> = ({
       <div className="w-full overflow-x-auto pb-8 scrollbar-none px-6 sm:px-12">
         <div className="flex items-center gap-4 min-w-[900px] max-w-7xl mx-auto">
           <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
-            <img
-              src="/images/about_strip_1.png"
-              alt="Engineering Workstation"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
+            <picture className="contents">
+              <source srcSet="/images/about_strip_1.webp" type="image/webp" />
+              <img
+                src="/images/about_strip_1.png"
+                alt="Engineering Workstation"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </picture>
           </div>
           <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
-            <img
-              src="/images/about_strip_2.png"
-              alt="Portrait with dynamic lighting"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
+            <picture className="contents">
+              <source srcSet="/images/about_strip_2.webp" type="image/webp" />
+              <img
+                src="/images/about_strip_2.png"
+                alt="Portrait with dynamic lighting"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </picture>
           </div>
           <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
-            <img
-              src="/images/about_strip_3.png"
-              alt="Collaborative engineering sprint"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
+            <picture className="contents">
+              <source srcSet="/images/about_strip_3.webp" type="image/webp" />
+              <img
+                src="/images/about_strip_3.png"
+                alt="Collaborative engineering sprint"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </picture>
           </div>
           <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
-            <img
-              src="/images/about_strip_4.png"
-              alt="System architecture modeling"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
+            <picture className="contents">
+              <source srcSet="/images/about_strip_4.webp" type="image/webp" />
+              <img
+                src="/images/about_strip_4.png"
+                alt="System architecture modeling"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </picture>
           </div>
           <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
-            <img
-              src="/images/about_strip_5.png"
-              alt="Developer environment"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
+            <picture className="contents">
+              <source srcSet="/images/about_strip_5.webp" type="image/webp" />
+              <img
+                src="/images/about_strip_5.png"
+                alt="Developer environment"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </picture>
           </div>
         </div>
       </div>

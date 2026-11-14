@@ -96,6 +96,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onNavigate }) 
                 <img
                   src={activeService.image}
                   alt={activeService.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-all duration-500"
                 />
                 <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#111111]/80 backdrop-blur-sm text-white text-[10px] font-mono uppercase tracking-wider">

@@ -50,16 +50,16 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Main Center Cutout Image: Joyful Wide-Eyed Cat */}
       <div className="relative z-10 flex-1 flex items-end justify-center pointer-events-none px-4 mt-2 sm:mt-0">
         <div className="relative max-w-xl w-full flex items-end justify-center animate-float-hero">
-          <img
-            src="/images/cat_intro.png"
-            alt="Joyful Cat Mascot"
-            className="w-auto h-[40vh] sm:h-[60vh] max-h-[600px] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.2)] translate-y-1 pointer-events-auto [mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)] transition-transform duration-500 hover:scale-105"
-            onError={(e) => {
-              if (e.currentTarget.src.indexOf('cat_front.png') === -1) {
-                e.currentTarget.src = '/images/cat_front.png';
-              }
-            }}
-          />
+          <picture className="contents">
+            <source srcSet="/images/cat_intro.webp" type="image/webp" />
+            <img
+              src="/images/cat_intro.png"
+              alt="Joyful Cat Mascot"
+              fetchPriority="high"
+              decoding="async"
+              className="w-auto h-[40vh] sm:h-[60vh] max-h-[600px] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.2)] translate-y-1 pointer-events-auto [mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)] transition-transform duration-500 hover:scale-105"
+            />
+          </picture>
         </div>
       </div>
 
@@ -77,14 +77,16 @@ export const Hero: React.FC<HeroProps> = ({
             className="absolute top-0 left-0 w-54 sm:w-56 bg-white p-2.5 rounded-xs shadow-md transition-all duration-300 border border-neutral-100 cursor-pointer -rotate-3 group-hover:-rotate-6 group-hover:-translate-x-4 group-hover:-translate-y-2 hover:!rotate-0 hover:!scale-105 hover:!z-40 hover:border-[#ff4d15] hover:shadow-xl z-10"
           >
             <div className="w-full aspect-[4/3] bg-neutral-100 overflow-hidden mb-2 relative rounded-xs">
-              <img
-                src="/images/project_cutoutai.png"
-                alt="CutOut AI"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/blog_synth.png';
-                }}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              />
+              <picture className="contents">
+                <source srcSet="/images/project_cutoutai.webp" type="image/webp" />
+                <img
+                  src="/images/project_cutoutai.png"
+                  alt="CutOut AI"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </picture>
               <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between">
                 <span className="text-[9px] font-mono font-medium text-white bg-black/75 px-1.5 py-0.5 rounded-xs">
                   Vision AI
@@ -110,14 +112,16 @@ export const Hero: React.FC<HeroProps> = ({
             className="absolute top-1.5 left-1.5 w-54 sm:w-56 bg-white p-2.5 rounded-xs shadow-md transition-all duration-300 border border-neutral-100 cursor-pointer rotate-2 group-hover:rotate-4 group-hover:translate-x-4 group-hover:-translate-y-1 hover:!rotate-0 hover:!scale-105 hover:!z-40 hover:border-[#ff4d15] hover:shadow-xl z-20"
           >
             <div className="w-full aspect-[4/3] bg-neutral-100 overflow-hidden mb-2 relative rounded-xs">
-              <img
-                src="/images/project_auraerp.png"
-                alt="AuraERP Platform"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/blog_teal_chair.png';
-                }}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              />
+              <picture className="contents">
+                <source srcSet="/images/project_auraerp.webp" type="image/webp" />
+                <img
+                  src="/images/project_auraerp.png"
+                  alt="AuraERP Platform"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </picture>
               <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between">
                 <span className="text-[9px] font-mono font-medium text-white bg-black/75 px-1.5 py-0.5 rounded-xs">
                   Supabase
@@ -143,11 +147,16 @@ export const Hero: React.FC<HeroProps> = ({
             className="absolute top-3 left-1 w-54 sm:w-56 bg-white p-3 rounded-xs shadow-lg transition-all duration-300 border border-neutral-200/90 cursor-pointer -rotate-0.5 group-hover:rotate-0 group-hover:scale-102 hover:!rotate-0 hover:!scale-105 hover:!z-40 hover:border-[#ff4d15] hover:shadow-xl z-30"
           >
             <div className="w-full aspect-[4/3] bg-neutral-100 overflow-hidden mb-2.5 relative rounded-xs">
-              <img
-                src="/images/hero_zentix.png"
-                alt="SwiftPDF Intelligence Suite"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+              <picture className="contents">
+                <source srcSet="/images/hero_zentix.webp" type="image/webp" />
+                <img
+                  src="/images/hero_zentix.png"
+                  alt="SwiftPDF Intelligence Suite"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </picture>
               <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between">
                 <span className="text-[9.5px] font-mono font-medium text-white bg-black/75 px-1.5 py-0.5 rounded-xs">
                   37+ PDF Tools
@@ -192,16 +201,16 @@ export const Hero: React.FC<HeroProps> = ({
               versionMode === 'v2' ? 'hover:-translate-y-1 hover:shadow-orange-500/20' : ''
             }`}
           >
-            <img
-              src="/images/cat_intro.png"
-              alt="Lakshya Avatar"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-md object-cover border border-neutral-700 group-hover:border-[#ff4d15] transition-colors bg-white/10 shrink-0"
-              onError={(e) => {
-                if (e.currentTarget.src.indexOf('lakshya_avatar.png') === -1) {
-                  e.currentTarget.src = '/images/lakshya_avatar.png';
-                }
-              }}
-            />
+            <picture className="contents">
+              <source srcSet="/images/cat_intro.webp" type="image/webp" />
+              <img
+                src="/images/cat_intro.png"
+                alt="Lakshya Avatar"
+                loading="lazy"
+                decoding="async"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-md object-cover border border-neutral-700 group-hover:border-[#ff4d15] transition-colors bg-white/10 shrink-0"
+              />
+            </picture>
             <div className="flex flex-col text-left min-w-0">
               <span className="text-[10px] sm:text-[11px] font-mono text-[#ff4d15] uppercase tracking-wider font-semibold truncate flex items-center gap-1">
                 <span>Let's Talk — Lakshya</span>

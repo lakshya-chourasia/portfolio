@@ -202,7 +202,7 @@ export const PROJECTS: Project[] = [
     number: '001',
     title: 'SwiftPDF Intelligence Suite',
     category: '/Next.js 15 · FastAPI',
-    image: '/images/project_zentix.png',
+    image: '/images/project_zentix.webp',
     tag: 'Enterprise Document Intelligence',
     description:
       'High-performance document intelligence platform offering 37+ PDF manipulation tools with zero persistent disk storage and sub-200ms render latencies.',
@@ -229,7 +229,7 @@ export const PROJECTS: Project[] = [
     number: '002',
     title: 'AuraERP — Cloud College Management Platform',
     category: '/Full-Stack MERN + Supabase',
-    image: '/images/project_lumio.png',
+    image: '/images/project_lumio.webp',
     tag: 'Campus Cloud Infrastructure',
     description:
       'Modular full-stack ERP managing student records, attendance, fee ledgers, and academic workflows with hybrid Supabase relational schemas and MongoDB.',
@@ -254,7 +254,7 @@ export const PROJECTS: Project[] = [
     number: '003',
     title: 'CutOut AI — Semantic Segmentation',
     category: '/Computer Vision · AI',
-    image: '/images/project_arkio.png',
+    image: '/images/project_arkio.webp',
     tag: 'Vision Transformer Pipeline',
     description:
       'Vision transformer semantic segmentation pipeline processing 4K assets in under 800ms with fine boundary refinement and alpha-matting.',
@@ -280,7 +280,7 @@ export const SERVICES: Service[] = [
     number: '001',
     title: 'FULL-STACK WEB DEVELOPMENT',
     description: 'ARCHITECTING SCALABLE, HIGH-PERFORMANCE WEB APPLICATIONS WITH NEXT.JS 15, REACT, AND FASTAPI.',
-    image: '/images/service_uiux.png',
+    image: '/images/service_uiux.webp',
     tags: [
       'Next.js 15 Architecture',
       'FastAPI Backend Systems',
@@ -294,7 +294,7 @@ export const SERVICES: Service[] = [
     number: '002',
     title: 'CLOUD & DATABASE SYSTEMS',
     description: 'DESIGNING HYBRID RELATIONAL AND DOCUMENT STORAGE ARCHITECTURES WITH AZURE, SUPABASE, AND MONGODB.',
-    image: '/images/service_app.png',
+    image: '/images/service_app.webp',
     tags: [
       'Microsoft Azure (AZ-900)',
       'Supabase PostgreSQL',
@@ -308,7 +308,7 @@ export const SERVICES: Service[] = [
     number: '003',
     title: 'AI & INTELLIGENT PIPELINES',
     description: 'INTEGRATING VISION TRANSFORMERS, SEMANTIC SEGMENTATION, AND LLM WORKFLOWS INTO RESPONSIVE FRONTENDS.',
-    image: '/images/service_product.png',
+    image: '/images/service_product.webp',
     tags: [
       'Vision Transformers',
       'OpenCV Image Processing',
@@ -376,7 +376,7 @@ export const ARTICLES: Article[] = [
     category: 'SYSTEMS',
     date: 'Jan 15, 2025',
     author: 'Lakshya Chourasia',
-    image: '/images/blog_teal_chair.png',
+    image: '/images/blog_teal_chair.webp',
     readTime: '5 min read',
     excerpt: 'How we eliminated disk I/O bottlenecks and cut FastAPI server memory overhead by 40%.',
     content: `When building high-throughput document intelligence tools like SwiftPDF, the primary performance bottleneck is almost never CPU computation—it is disk I/O. Writing incoming multi-megabyte PDF binaries to temporary folders and reading them back incurs massive OS context-switching penalties.
@@ -389,7 +389,7 @@ By migrating our entire pipeline to Python BytesIO buffers and PyMuPDF stream de
     category: 'ARCHITECTURE',
     date: 'Dec 10, 2024',
     author: 'Lakshya Chourasia',
-    image: '/images/blog_pumpkin_chair.png',
+    image: '/images/blog_pumpkin_chair.webp',
     readTime: '6 min read',
     excerpt: 'Combining Supabase PostgreSQL with MongoDB to maintain ACID compliance without sacrificing schema agility.',
     content: `Enterprise college management systems present a unique data modeling challenge: financial fee ledgers demand strict ACID guarantees and foreign key constraints, while dynamic course syllabi and extracurricular records evolve continuously.
@@ -402,7 +402,7 @@ In AuraERP, we implemented a hybrid data topology. Financial ledgers and student
     category: 'COMPETITIVE PROGRAMMING',
     date: 'Nov 02, 2024',
     author: 'Lakshya Chourasia',
-    image: '/images/blog_wood_chair.png',
+    image: '/images/blog_wood_chair.webp',
     readTime: '7 min read',
     excerpt: 'Patterns, mental models, and dynamic programming tricks that helped conquer TCS CodeVita Season 13.',
     content: `Solving over 1,200 problems across LeetCode, CodeChef, and GeeksforGeeks taught me that competitive programming is not about memorizing solutions—it is about pattern recognition.
@@ -447,7 +447,7 @@ export const CAREER_JOURNEY: CareerItem[] = [
     id: 'swiftpdf-lead',
     company: 'SWIFTPDF INTELLIGENCE',
     period: '[2024 – PRESENT]',
-    image: '/images/career_framerdevs.png',
+    image: '/images/career_framerdevs.webp',
     role: 'Lead Full-Stack Architect',
     description:
       'Engineered an enterprise document intelligence suite with 37+ tools, Next.js 15 frontend, and an asynchronous FastAPI backend operating purely in RAM.',
@@ -456,7 +456,7 @@ export const CAREER_JOURNEY: CareerItem[] = [
     id: 'auraerp-dev',
     company: 'AURAERP PLATFORM',
     period: '[2023 – 2024]',
-    image: '/images/career_reddevs.png',
+    image: '/images/career_reddevs.webp',
     role: 'Full-Stack SDE Intern',
     description:
       'Architected hybrid Supabase PostgreSQL and MongoDB database layer, multi-tier JWT RBAC authentication, and academic workflow automation.',

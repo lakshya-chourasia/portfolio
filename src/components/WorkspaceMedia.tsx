@@ -23,7 +23,7 @@ export const WorkspaceMedia: React.FC = () => {
           <video
             ref={videoRef}
             src="/videos/workspace.mp4"
-            poster="/images/workspace_poster.png"
+            poster="/images/workspace_poster.webp"
             autoPlay
             loop
             muted

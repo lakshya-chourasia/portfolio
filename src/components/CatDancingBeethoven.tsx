@@ -204,11 +204,15 @@ export const CatDancingBeethoven: React.FC = () => {
           {/* Fallback image if video is decoding */}
           {!videoLoaded && (
             <div className="h-48 sm:h-64 flex items-center justify-center">
-              <img
-                src="/images/cat_intro.png"
-                alt="Dancing Cat"
-                className="h-40 sm:h-52 w-auto object-contain animate-bounce"
-              />
+              <picture className="contents">
+                <source srcSet="/images/cat_intro.webp" type="image/webp" />
+                <img
+                  src="/images/cat_intro.png"
+                  alt="Dancing Cat"
+                  decoding="async"
+                  className="h-40 sm:h-52 w-auto object-contain animate-bounce"
+                />
+              </picture>
             </div>
           )}
         </div>

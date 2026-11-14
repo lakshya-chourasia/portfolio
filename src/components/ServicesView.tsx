@@ -85,6 +85,8 @@ export const ServicesView: React.FC<ServicesViewProps> = ({
                     <img
                       src={service.image}
                       alt={service.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute bottom-3 right-3 px-3 py-1 bg-black/80 backdrop-blur-sm text-white text-[10px] font-mono uppercase">
