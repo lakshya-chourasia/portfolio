@@ -31,6 +31,7 @@ import { ProjectModal } from './components/ProjectModal';
 import { VersionControlModal } from './components/VersionControlModal';
 import { ResumeModal } from './components/ResumeModal';
 import { PortfolioVersion } from './components/VersionSwitcher';
+import { SoundStreamAudioBar } from './components/SoundStreamAudioBar';
 
 import { PROJECTS } from './data/portfolioData';
 import { Project, Article } from './types';
@@ -147,6 +148,11 @@ export default function App() {
           />
         )}
       </main>
+
+      {/* SoundStream Interactive Theme Audio Player Bar */}
+      <SoundStreamAudioBar
+        onOpenSoundStreamProject={() => setSelectedProjectId('soundstream')}
+      />
 
       {/* Curriculum Vitae / Resume Modal */}
       <ResumeModal
