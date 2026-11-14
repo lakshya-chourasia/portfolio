@@ -3,18 +3,18 @@ import { IMPACT_STATS, HERO_DATA } from '../data/portfolioData';
 
 export const ImpactSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#f8f8f8] py-20 sm:py-28 text-[#111111] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section className="w-full bg-[#f8f8f8] py-16 sm:py-28 text-[#111111] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Section Header Tag */}
-        <div className="mb-6 flex items-center gap-2">
+        <div className="mb-4 sm:mb-6 flex items-center gap-2">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ff4d15] uppercase">
             // BETTER DIGITAL JOURNEYS
           </span>
         </div>
 
         {/* Big Headline with Decorative Star */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-[1.05] max-w-3xl">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-[1.05] max-w-3xl">
             MY IMPACT <br />
             <span className="text-neutral-500 font-extrabold">THROUGH USER</span> EXPERIENCE
           </h2>

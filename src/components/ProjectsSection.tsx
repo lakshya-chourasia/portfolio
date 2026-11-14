@@ -14,8 +14,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   versionMode = 'v2',
 }) => {
   return (
-    <section className="w-full bg-[#f6f6f6] py-20 sm:py-28 text-[#111111] border-t border-neutral-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section className="w-full bg-[#f6f6f6] py-16 sm:py-28 text-[#111111] border-t border-neutral-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Section Tag */}
         <div className="mb-6 flex items-center gap-2">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ff4d15] uppercase">
@@ -59,7 +59,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <Sparkles className="w-3 h-3 text-[#ff4d15]" />
                     <span>001 // ENTERPRISE FLAGSHIP</span>
                   </div>
-                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-4 right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                     <ArrowUpRight className="w-5 h-5 text-[#ff4d15]" />
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-mono font-bold text-white flex items-center gap-1.5 border border-white/20">
                       <span>002 // CLOUD ERP</span>
                     </div>
-                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                       <ArrowUpRight className="w-4 h-4 text-[#ff4d15]" />
                     </div>
                   </div>
@@ -203,7 +203,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-mono font-bold text-white flex items-center gap-1.5 border border-white/20">
                       <span>003 // COMPUTER VISION</span>
                     </div>
-                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                       <ArrowUpRight className="w-4 h-4 text-[#ff4d15]" />
                     </div>
                   </div>

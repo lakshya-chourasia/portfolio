@@ -12,24 +12,24 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onNavigate }) 
   const activeService = SERVICES.find((s) => s.id === activeServiceId) || SERVICES[0];
 
   return (
-    <section className="w-full bg-white py-20 sm:py-28 text-[#111111] border-t border-neutral-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section className="w-full bg-white py-16 sm:py-28 text-[#111111] border-t border-neutral-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Header Tag */}
-        <div className="mb-6 flex items-center gap-2">
+        <div className="mb-4 sm:mb-6 flex items-center gap-2">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ff4d15] uppercase">
             // OUR SERVICES
           </span>
         </div>
 
         {/* Section Headline */}
-        <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-16 max-w-4xl">
+        <h2 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-10 sm:mb-16 max-w-4xl">
           POWERFUL <br />
           <span className="text-neutral-500 font-extrabold">DESIGN SERVICES</span> <br />
           FOR YOUR BRAND
         </h2>
 
         {/* Interactive Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
           {/* Left Column: List of Services */}
           <div className="lg:col-span-7 flex flex-col divide-y divide-neutral-200">
             {SERVICES.slice(0, 4).map((service) => {
@@ -37,6 +37,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onNavigate }) 
               return (
                 <div
                   key={service.id}
+                  onClick={() => setActiveServiceId(service.id)}
                   onMouseEnter={() => setActiveServiceId(service.id)}
                   onClick={() => setActiveServiceId(service.id)}
                   className={`py-8 cursor-pointer transition-all duration-300 group ${

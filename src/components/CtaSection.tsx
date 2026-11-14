@@ -25,9 +25,9 @@ export const CtaSection: React.FC = () => {
 
   return (
     <section className="w-full bg-[#f4f4f4] py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Glow Container */}
-        <div className="relative w-full rounded-sm overflow-hidden bg-neutral-900 min-h-[500px] p-8 sm:p-14 shadow-2xl flex items-center border border-neutral-800">
+        <div className="relative w-full rounded-sm overflow-hidden bg-neutral-900 min-h-[500px] p-5 sm:p-14 shadow-2xl flex items-center border border-neutral-800">
           {/* Background Image / Ambient Lighting */}
           <div className="absolute inset-0 z-0">
             <img

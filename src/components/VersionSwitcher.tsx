@@ -1,51 +1,29 @@
 import React from 'react';
-import { Layers, Sparkles } from 'lucide-react';
+import { FileText, ArrowUpRight } from 'lucide-react';
 
 export type PortfolioVersion = 'v1' | 'v2';
 
 interface VersionSwitcherProps {
-  currentVersion: PortfolioVersion;
-  onVersionChange: (version: PortfolioVersion) => void;
+  currentVersion?: PortfolioVersion;
+  onVersionChange?: (version: PortfolioVersion) => void;
+  onOpenResume: () => void;
 }
 
-export const VersionSwitcher: React.FC<VersionSwitcherProps> = ({
-  currentVersion,
-  onVersionChange,
-}) => {
+export const VersionSwitcher: React.FC<VersionSwitcherProps> = ({ onOpenResume }) => {
   return (
     <aside
-      aria-label="Portfolio Version Switcher"
-      className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 max-w-[95vw]"
+      aria-label="View Resume"
+      className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[95vw] pb-[env(safe-area-inset-bottom)] pointer-events-none"
     >
-      <div className="bg-[#121212]/92 backdrop-blur-xl border border-neutral-700/80 p-1.5 rounded-full shadow-2xl flex items-center gap-1.5 transition-all hover:border-[#ff4d15]/60 hover:shadow-[0_10px_30px_rgba(255,77,21,0.25)]">
-        {/* V1 Button */}
-        <button
-          onClick={() => onVersionChange('v1')}
-          aria-pressed={currentVersion === 'v1'}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 cursor-pointer ${
-            currentVersion === 'v1'
-              ? 'bg-white text-black shadow-md scale-100'
-              : 'text-neutral-400 hover:text-white hover:bg-neutral-800/60'
-          }`}
-        >
-          <Layers className="w-3.5 h-3.5" />
-          <span>V1: Classic Intact</span>
-        </button>
-
-        {/* V2 Button */}
-        <button
-          onClick={() => onVersionChange('v2')}
-          aria-pressed={currentVersion === 'v2'}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 cursor-pointer ${
-            currentVersion === 'v2'
-              ? 'bg-[#ff4d15] text-white shadow-md shadow-[#ff4d15]/30 scale-100'
-              : 'text-neutral-400 hover:text-white hover:bg-neutral-800/60'
-          }`}
-        >
-          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-          <span>V2: Framer Animated Edition</span>
-        </button>
-      </div>
+      <button
+        onClick={onOpenResume}
+        aria-label="View Resume and Curriculum Vitae"
+        className="pointer-events-auto min-h-[44px] group flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#111111]/95 hover:bg-[#ff4d15] text-white font-mono text-xs font-bold uppercase tracking-wider backdrop-blur-xl border border-neutral-700/80 hover:border-[#ff4d15] shadow-2xl transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-black/60 touch-manipulation"
+      >
+        <FileText className="w-4 h-4 text-[#ff4d15] group-hover:text-white transition-colors" />
+        <span>VIEW RESUME</span>
+        <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+      </button>
     </aside>
   );
 };

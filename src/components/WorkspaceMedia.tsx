@@ -17,31 +17,33 @@ export const WorkspaceMedia: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-[#f4f4f4] pb-20 sm:pb-28">
-      <div className="max-w-6xl mx-auto px-6 sm:px-12">
+    <section className="w-full bg-[#f4f4f4] pb-16 sm:pb-28">
+      <div className="max-w-6xl mx-auto px-4 sm:px-12">
         <div className="relative w-full aspect-[16/9] max-h-[560px] bg-neutral-900 rounded-xs overflow-hidden shadow-2xl border border-neutral-300 group">
           <video
             ref={videoRef}
             src="/videos/workspace.mp4"
+            poster="/images/workspace_poster.png"
             autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           />
 
-          {/* Interactive Play/Pause button overlay */}
-          <div className="absolute bottom-4 right-4 z-10">
+          {/* Interactive Play/Pause button overlay - 44px Android touch target */}
+          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10">
             <button
               onClick={togglePlay}
               aria-label={isPlaying ? 'Pause workspace video' : 'Play workspace video'}
-              className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#ff4d15] transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-full bg-black/75 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#ff4d15] active:scale-95 transition-all cursor-pointer shadow-lg"
             >
               {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
             </button>
           </div>
 
-          <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-black/60 backdrop-blur-md text-white font-mono text-[11px] uppercase tracking-wider rounded-xs">
+          <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 px-2.5 sm:px-3 py-1 bg-black/70 backdrop-blur-md text-white font-mono text-[9.5px] sm:text-[11px] uppercase tracking-wider rounded-xs">
             LIVE DESIGN LAB • MULTI-DISPLAY WORKFLOW
           </div>
         </div>

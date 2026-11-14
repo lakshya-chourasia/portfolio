@@ -1,20 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, Music, Sparkles } from 'lucide-react';
+import { Volume2, Music, Sparkles, X } from 'lucide-react';
 
-interface CatDancingProps {
-  compact?: boolean;
-}
-
-export const CatDancingBeethoven: React.FC<CatDancingProps> = ({ compact = false }) => {
-  const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
+export const CatDancingBeethoven: React.FC = () => {
+  const [isActive, setIsActive] = useState<boolean>(false);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const sequenceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState<boolean>(false);
 
   // Beethoven Symphony No. 5 notes in Hz:
-  // Motif 1: G4, G4, G4, Eb4 (held)
-  // Motif 2: F4, F4, F4, D4 (held)
   const beethovenNotes = [
     { freq: 392.0, dur: 0.22, delay: 0 },    // G4
     { freq: 392.0, dur: 0.22, delay: 0.26 }, // G4
@@ -26,7 +20,6 @@ export const CatDancingBeethoven: React.FC<CatDancingProps> = ({ compact = false
     { freq: 349.23, dur: 0.22, delay: 2.62 },// F4
     { freq: 293.66, dur: 1.3, delay: 2.88 }, // D4 (long)
 
-    // Second variation:
     { freq: 392.0, dur: 0.2, delay: 4.5 },
     { freq: 392.0, dur: 0.2, delay: 4.74 },
     { freq: 392.0, dur: 0.2, delay: 4.98 },
@@ -37,7 +30,25 @@ export const CatDancingBeethoven: React.FC<CatDancingProps> = ({ compact = false
     { freq: 293.66, dur: 0.9, delay: 6.82 },
   ];
 
-  const playBeethovenMotif = () => {
+  const stopMusic = () => {
+    if (sequenceTimerRef.current) {
+      clearTimeout(sequenceTimerRef.current);
+      sequenceTimerRef.current = null;
+    }
+    if (audioCtxRef.current) {
+      try {
+        audioCtxRef.current.suspend();
+      } catch {
+        // ignore
+      }
+    }
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.muted = true;
+    }
+  };
+
+  const playBeethovenSynthesizer = () => {
     try {
       const AudioContextClass =
         window.AudioContext ||
@@ -57,11 +68,9 @@ export const CatDancingBeethoven: React.FC<CatDancingProps> = ({ compact = false
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
-        // Rich orchestral tone
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(note.freq, now + note.delay);
 
-        // Sub-bass layer
         const subOsc = ctx.createOscillator();
         subOsc.type = 'triangle';
         subOsc.frequency.setValueAtTime(note.freq / 2, now + note.delay);
@@ -83,40 +92,45 @@ export const CatDancingBeethoven: React.FC<CatDancingProps> = ({ compact = false
         subOsc.stop(stopTime);
       });
 
-      // Repeat loop every 8 seconds
       sequenceTimerRef.current = setTimeout(() => {
-        if (isAudioPlaying) {
-          playBeethovenMotif();
-        }
+        playBeethovenSynthesizer();
       }, 8200);
     } catch {
-      // AudioContext not allowed without user gesture or unsupported
+      // AudioContext fallback
     }
   };
 
-  const toggleAudio = () => {
-    if (isAudioPlaying) {
-      if (sequenceTimerRef.current) clearTimeout(sequenceTimerRef.current);
-      if (audioCtxRef.current) {
-        audioCtxRef.current.suspend();
-      }
-      if (videoRef.current) {
-        videoRef.current.muted = true;
-      }
-      setIsAudioPlaying(false);
+  const toggleSurprise = () => {
+    if (isActive) {
+      stopMusic();
+      setIsActive(false);
     } else {
-      setIsAudioPlaying(true);
-      playBeethovenMotif();
-      if (videoRef.current) {
-        videoRef.current.muted = false;
-        videoRef.current.play().catch(() => {});
-      }
+      setIsActive(true);
+      // Wait for next tick so video element mounts, then play video with audio or synth
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+          videoRef.current.muted = false;
+          videoRef.current
+            .play()
+            .then(() => {
+              // Video audio started playing successfully
+            })
+            .catch(() => {
+              // Video audio was blocked by browser policy; fallback to Web Audio synth
+              playBeethovenSynthesizer();
+            });
+        } else {
+          playBeethovenSynthesizer();
+        }
+      }, 50);
     }
   };
 
   useEffect(() => {
     return () => {
       if (sequenceTimerRef.current) clearTimeout(sequenceTimerRef.current);
+      stopMusic();
       if (audioCtxRef.current) {
         audioCtxRef.current.close().catch(() => {});
       }
@@ -124,133 +138,81 @@ export const CatDancingBeethoven: React.FC<CatDancingProps> = ({ compact = false
   }, []);
 
   return (
-    <div
-      className={`relative w-full rounded-xs overflow-hidden bg-gradient-to-br from-[#121212] via-[#1a1a1a] to-[#24130c] border border-neutral-800 p-5 flex flex-col justify-between group shadow-xl ${
-        compact ? 'min-h-[220px]' : 'min-h-[280px]'
-      }`}
-    >
-      {/* Background Subtle Equalizer Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ff4d15]/15 via-transparent to-transparent pointer-events-none"></div>
-
-      {/* Header bar */}
-      <div className="relative z-10 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#ff4d15] animate-ping"></span>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-bold flex items-center gap-1">
-            <Music className="w-3 h-3 text-[#ff4d15]" />
-            DEV ANTHEM & VIBE
-          </span>
-        </div>
-
-        {/* Audio Toggle Button */}
+    <div className="w-full pt-6 pb-2 flex flex-col items-center justify-center select-none bg-transparent">
+      {/* Audio Play/Mute Control Bar - "Click for something interesting" */}
+      <div className="flex items-center gap-3">
         <button
-          onClick={toggleAudio}
-          aria-label={isAudioPlaying ? 'Mute Beethoven Audio' : 'Unmute Beethoven Audio'}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold transition-all cursor-pointer ${
-            isAudioPlaying
-              ? 'bg-[#ff4d15] text-white shadow-lg shadow-[#ff4d15]/30'
-              : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white border border-neutral-700'
+          onClick={toggleSurprise}
+          type="button"
+          aria-label={isActive ? 'Hide Dancing Cat and Stop Music' : 'Click for something interesting'}
+          className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer shadow-lg active:scale-95 ${
+            isActive
+              ? 'bg-[#ff4d15] text-white shadow-[#ff4d15]/40 scale-105'
+              : 'bg-neutral-900 hover:bg-[#ff4d15] text-white border border-neutral-700/80 hover:border-[#ff4d15] hover:scale-105'
           }`}
         >
-          {isAudioPlaying ? (
+          {isActive ? (
             <>
-              <Volume2 className="w-3.5 h-3.5 animate-pulse" />
-              <span>Playing Beethoven</span>
+              <Volume2 className="w-4 h-4 animate-pulse text-white" />
+              <span>Playing Beethoven • Click to Stop</span>
+              <X className="w-3.5 h-3.5 ml-1 opacity-80 hover:opacity-100" />
             </>
           ) : (
             <>
-              <VolumeX className="w-3.5 h-3.5" />
-              <span>Unmute Audio</span>
+              <Sparkles className="w-4 h-4 text-[#ff4d15] animate-spin" style={{ animationDuration: '4s' }} />
+              <span>Click for something interesting</span>
             </>
           )}
         </button>
       </div>
 
-      {/* Animated Dancing Cat Stage */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center my-3 select-none">
-        {/* Try to show user's self-hosted video if exists */}
-        <video
-          ref={videoRef}
-          playsInline
-          autoPlay
-          loop
-          muted={!isAudioPlaying}
-          onLoadedData={() => setVideoLoaded(true)}
-          className={`max-h-36 w-auto object-contain transition-opacity duration-300 ${
-            videoLoaded ? 'block' : 'hidden'
-          }`}
+      {/* Dancing Cat Section - HIDDEN UNTIL USER CLICKS THE BUTTON */}
+      {isActive && (
+        <div
+          onClick={toggleSurprise}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && toggleSurprise()}
+          title="Click to Stop & Hide Cat"
+          aria-label="Click to Stop & Hide Cat"
+          className="relative flex flex-col items-center justify-center cursor-pointer mt-6 transition-all duration-500 animate-in fade-in zoom-in-95 group"
         >
-          <source src="/videos/cat_dancing.webm" type="video/webm" />
-          <source src="/videos/cat_dancing.mp4" type="video/mp4" />
-          <source src="/assets/aistudio/heya_ram_ja_64b565b2.mp4" type="video/mp4" />
-        </video>
+          {/* Subtle decorative rhythm notes floating beside the cat */}
+          <div className="absolute -top-3 -right-8 text-[#ff4d15] pointer-events-none scale-125 animate-bounce">
+            <Sparkles className="w-5 h-5" />
+          </div>
+          <div className="absolute top-4 -left-8 text-amber-500 pointer-events-none scale-125 animate-pulse">
+            <Music className="w-5 h-5" />
+          </div>
 
-        {/* Fallback stylized SVG Dancing Cat with rhythm bounce */}
-        {!videoLoaded && (
-          <div className="relative flex flex-col items-center justify-center">
-            {/* Sparkles / Notes around cat */}
-            <div
-              className={`absolute -top-3 -right-6 text-[#ff4d15] transition-all duration-300 ${
-                isAudioPlaying ? 'scale-125 animate-bounce' : 'opacity-40'
-              }`}
-            >
-              <Sparkles className="w-4 h-4" />
-            </div>
-            <div
-              className={`absolute top-2 -left-6 text-amber-400 transition-all duration-300 ${
-                isAudioPlaying ? 'scale-125 animate-pulse' : 'opacity-40'
-              }`}
-            >
-              <Music className="w-3.5 h-3.5" />
-            </div>
+          {/* Dancing Cat Video without any box/frame */}
+          <video
+            ref={videoRef}
+            playsInline
+            autoPlay
+            loop
+            muted={false}
+            onLoadedData={() => setVideoLoaded(true)}
+            className={`h-48 sm:h-64 md:h-72 w-auto object-contain pointer-events-auto filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:scale-105 ${
+              videoLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <source src="/videos/cat_dancing.webm" type="video/webm" />
+            <source src="/videos/cat_dancing.mp4" type="video/mp4" />
+          </video>
 
-            {/* Joyful Wide-Eyed Cat Graphic */}
-            <div
-              className={`transition-all duration-300 ${
-                isAudioPlaying ? 'animate-bounce scale-110' : 'hover:scale-105'
-              }`}
-            >
+          {/* Fallback image if video is decoding */}
+          {!videoLoaded && (
+            <div className="h-48 sm:h-64 flex items-center justify-center">
               <img
-                src="/assets/aistudio/Joyful_Wide-Eyed_Cat_Sticker_b3a05633.png"
-                alt="Joyful Cat Dancing"
-                className="w-24 h-24 sm:w-28 sm:h-28 object-contain drop-shadow-[0_10px_20px_rgba(255,77,21,0.35)]"
-                onError={(e) => {
-                  if (e.currentTarget.src.indexOf('cat_front.png') === -1) {
-                    e.currentTarget.src = '/images/cat_front.png';
-                  }
-                }}
+                src="/images/cat_intro.png"
+                alt="Dancing Cat"
+                className="h-40 sm:h-52 w-auto object-contain animate-bounce"
               />
             </div>
-          </div>
-        )}
-
-        <span className="text-xs font-mono font-bold text-white mt-2 tracking-tight">
-          Cat Dancing to Beethoven (Op. 67)
-        </span>
-        <span className="text-[11px] font-mono text-neutral-400">
-          Symphony No. 5 in C minor • Zero Latency Audio Loop
-        </span>
-      </div>
-
-      {/* Footer Visualizer */}
-      <div className="relative z-10 flex items-center justify-between pt-3 border-t border-neutral-800 text-[11px] font-mono">
-        <span className="text-neutral-500">BEAT SYNC</span>
-        <div className="flex items-end gap-1 h-3.5">
-          {[4, 8, 14, 6, 12, 16, 9, 13, 5, 11].map((h, i) => (
-            <span
-              key={i}
-              className={`w-1 rounded-full transition-all duration-150 ${
-                isAudioPlaying
-                  ? 'bg-[#ff4d15] animate-pulse'
-                  : 'bg-neutral-700'
-              }`}
-              style={{
-                height: isAudioPlaying ? `${((i % 4) + 1) * 3 + 4}px` : '4px',
-              }}
-            ></span>
-          ))}
+          )}
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -4,18 +4,18 @@ import { TESTIMONIALS } from '../data/portfolioData';
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#f9f9f9] py-20 sm:py-28 text-[#111111] border-t border-neutral-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section className="w-full bg-[#f9f9f9] py-16 sm:py-28 text-[#111111] border-t border-neutral-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Section Tag */}
-        <div className="mb-6 flex items-center gap-2">
+        <div className="mb-4 sm:mb-6 flex items-center gap-2">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ff4d15] uppercase">
             // DESIGNS CLIENTS LOVE
           </span>
         </div>
 
         {/* Section Headline & Subtitle */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none max-w-2xl">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none max-w-2xl">
             WHAT MY <br />
             <span className="text-neutral-500 font-extrabold">CLIENTS SAY</span>
           </h2>

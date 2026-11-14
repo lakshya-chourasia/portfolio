@@ -3,17 +3,17 @@ import { DESIGN_PROCESS } from '../data/portfolioData';
 
 export const DesignProcess: React.FC = () => {
   return (
-    <section className="w-full bg-[#fafafa] py-20 sm:py-28 text-[#111111] border-t border-neutral-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section className="w-full bg-[#fafafa] py-16 sm:py-28 text-[#111111] border-t border-neutral-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Section Tag */}
-        <div className="mb-6 flex items-center justify-center text-center gap-2">
+        <div className="mb-4 sm:mb-6 flex items-center justify-center text-center gap-2">
           <span className="text-xs font-mono font-bold tracking-widest text-[#ff4d15] uppercase">
             // MY DESIGN PROCESS
           </span>
         </div>
 
         {/* Section Headline */}
-        <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter text-center leading-none mb-16">
+        <h2 className="text-3xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter text-center leading-none mb-10 sm:mb-16">
           DESIGN PROCESS <br />
           <span className="text-neutral-500 font-extrabold">THAT WORKS</span>
         </h2>

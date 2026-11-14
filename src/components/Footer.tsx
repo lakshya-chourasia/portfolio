@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { HERO_DATA } from '../data/portfolioData';
+import { CatDancingBeethoven } from './CatDancingBeethoven';
 
 interface FooterProps {
   onNavigate: (view: string) => void;
@@ -19,8 +20,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenVersionControl
   };
 
   return (
-    <footer className="w-full bg-[#f4f4f4] pt-16 pb-12 text-[#111111] border-t border-neutral-300 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <footer className="w-full bg-[#f4f4f4] pt-16 pb-16 text-[#111111] border-t border-neutral-300 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-12">
         {/* Top Info & Newsletter Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-neutral-300">
           {/* Left: Bio & Contacts */}
@@ -206,6 +207,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenVersionControl
             </span>
           </div>
         </div>
+
+        {/* End-of-Page Meme: Cat Dancing to Beethoven (100% borderless, no box behind) */}
+        <CatDancingBeethoven />
 
         {/* Huge Watermark: "Lakshya ®" */}
         <div className="pt-10 pb-6 text-center select-none overflow-hidden">

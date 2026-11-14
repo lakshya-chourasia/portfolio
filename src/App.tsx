@@ -29,7 +29,8 @@ import { NotFoundView } from './components/NotFoundView';
 import { ArticleModal } from './components/ArticleModal';
 import { ProjectModal } from './components/ProjectModal';
 import { VersionControlModal } from './components/VersionControlModal';
-import { VersionSwitcher, PortfolioVersion } from './components/VersionSwitcher';
+import { ResumeModal } from './components/ResumeModal';
+import { PortfolioVersion } from './components/VersionSwitcher';
 
 import { PROJECTS } from './data/portfolioData';
 import { Project, Article } from './types';
@@ -39,6 +40,7 @@ export default function App() {
   const [versionMode, setVersionMode] = useState<PortfolioVersion>('v2');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isVersionControlOpen, setIsVersionControlOpen] = useState<boolean>(false);
+  const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
@@ -70,6 +72,7 @@ export default function App() {
         onNavigate={handleNavigate}
         onOpenMenu={() => setIsMenuOpen(true)}
         onOpenVersionControl={() => setIsVersionControlOpen(true)}
+        onOpenResume={() => setIsResumeOpen(true)}
       />
 
       {/* Main Page View Renderer */}
@@ -145,10 +148,10 @@ export default function App() {
         )}
       </main>
 
-      {/* Floating Version Switcher Bar */}
-      <VersionSwitcher
-        currentVersion={versionMode}
-        onVersionChange={setVersionMode}
+      {/* Curriculum Vitae / Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
       />
 
       {/* Fullscreen Framer Overlay Menu */}
@@ -157,6 +160,7 @@ export default function App() {
         onClose={() => setIsMenuOpen(false)}
         onNavigate={handleNavigate}
         onOpenVersionControl={() => setIsVersionControlOpen(true)}
+        onOpenResume={() => setIsResumeOpen(true)}
       />
 
       {/* Git Version Control & Change History Modal */}

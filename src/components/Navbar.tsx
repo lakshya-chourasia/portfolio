@@ -1,5 +1,5 @@
 import React from 'react';
-import { GitBranch } from 'lucide-react';
+import { GitBranch, FileText, ArrowUpRight } from 'lucide-react';
 import { HERO_DATA } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -7,6 +7,7 @@ interface NavbarProps {
   onNavigate: (view: string) => void;
   onOpenMenu: () => void;
   onOpenVersionControl: () => void;
+  onOpenResume: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -14,12 +15,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   onNavigate,
   onOpenMenu,
   onOpenVersionControl,
+  onOpenResume,
 }) => {
   const isHeroActive = currentView === 'home';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-[#0d0d0d]/90 backdrop-blur-md border-b border-neutral-800/80 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-[#0d0d0d]/92 backdrop-blur-md border-b border-neutral-800/80 transition-all duration-300 pt-[env(safe-area-inset-top)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-18 flex items-center justify-between">
         {/* Brand Logo */}
         <button
           onClick={() => onNavigate('home')}
@@ -84,7 +86,20 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right action controls */}
-        <div className="flex items-center gap-3.5">
+        <div className="flex items-center gap-2.5 sm:gap-3.5">
+          {/* View Resume Button in Header */}
+          <button
+            onClick={onOpenResume}
+            title="View Resume and Curriculum Vitae"
+            aria-label="View Resume and Curriculum Vitae"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ff4d15] hover:bg-[#e03d09] text-white text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-md shadow-orange-950/20 active:scale-95 group"
+          >
+            <FileText className="w-3.5 h-3.5 text-white" />
+            <span className="hidden sm:inline">View Resume</span>
+            <span className="sm:hidden">Resume</span>
+            <ArrowUpRight className="w-3 h-3 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+
           {/* Version Control Badge / Trigger */}
           <button
             onClick={onOpenVersionControl}

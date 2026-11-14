@@ -7,6 +7,7 @@ interface FullscreenMenuProps {
   onClose: () => void;
   onNavigate: (view: string) => void;
   onOpenVersionControl: () => void;
+  onOpenResume?: () => void;
 }
 
 export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({
@@ -14,6 +15,7 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({
   onClose,
   onNavigate,
   onOpenVersionControl,
+  onOpenResume,
 }) => {
   if (!isOpen) return null;
 
@@ -23,9 +25,9 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#0d0d0d] flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-[#0d0d0d] flex flex-col justify-between overflow-y-auto overscroll-contain animate-in fade-in duration-200 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       {/* Top bar inside menu */}
-      <div className="max-w-7xl w-full mx-auto px-6 sm:px-12 py-8 flex items-center justify-between border-b border-neutral-800">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-12 py-5 sm:py-8 flex items-center justify-between border-b border-neutral-800">
         <button
           onClick={() => handleNavClick('home')}
           className="text-2xl font-black tracking-tight text-white flex items-center gap-1 cursor-pointer"
@@ -37,14 +39,14 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({
         <button
           onClick={onClose}
           aria-label="Close Navigation Menu"
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-900 border border-neutral-800 text-white hover:text-[#ff4d15] hover:border-[#ff4d15] transition-all cursor-pointer"
+          className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-neutral-900 border border-neutral-800 text-white hover:text-[#ff4d15] hover:border-[#ff4d15] transition-all cursor-pointer"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl w-full mx-auto px-6 sm:px-12 py-12 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-12 py-8 sm:py-12 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
         {/* Left Column: Big Navigation Links with + */}
         <div className="lg:col-span-7 flex flex-col space-y-4 sm:space-y-6">
           <button
@@ -94,6 +96,24 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({
             <span>CONTACT</span>
             <span className="text-2xl sm:text-4xl text-neutral-600 group-hover:text-[#ff4d15] group-hover:rotate-45 transition-all">
               +
+            </span>
+          </button>
+
+          <button
+            onClick={() => {
+              onClose();
+              if (onOpenResume) onOpenResume();
+            }}
+            className="group flex items-center justify-between text-left text-4xl sm:text-6xl md:text-7xl font-black uppercase text-white hover:text-[#ff4d15] transition-all cursor-pointer tracking-tight"
+          >
+            <span className="flex items-center gap-3">
+              <span>RESUME</span>
+              <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#ff4d15] text-white tracking-widest align-middle">
+                CV
+              </span>
+            </span>
+            <span className="text-2xl sm:text-4xl text-neutral-600 group-hover:text-[#ff4d15] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
+              ↗
             </span>
           </button>
         </div>
@@ -186,7 +206,7 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-7xl w-full mx-auto px-6 sm:px-12 py-6 flex items-center justify-between text-xs text-neutral-500 font-mono border-t border-neutral-800">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-12 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 font-mono border-t border-neutral-800 gap-2">
         <span>©2026 Lakshya Chourasia</span>
         <span>B.Tech CSE (Class of 2027)</span>
       </div>
