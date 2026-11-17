@@ -31,31 +31,31 @@ export const ImpactSection: React.FC = () => {
           {/* Left Column: Artistic Photography Pair */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
             {/* Main blurred motion portrait */}
-            <div className="relative w-64 sm:w-72 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-xl border border-neutral-300">
-              <img
-                src="/images/impact_motion.webp"
-                alt="Creative direction motion portrait"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/impact_motion.png';
-                }}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
+            <div className="relative w-64 sm:w-72 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-2xl border border-neutral-300 group">
+              <picture className="contents">
+                <source srcSet="/images/impact_motion.webp" type="image/webp" />
+                <img
+                  src="/images/impact_motion.png"
+                  alt="Cinematic motion blur portrait"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </picture>
             </div>
 
             {/* Floating smaller high-contrast red portrait */}
-            <div className="absolute -right-2 sm:right-6 -bottom-6 sm:-bottom-8 w-36 sm:w-44 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-2xl border-2 border-white">
-              <img
-                src="/images/impact_red.webp"
-                alt="Dramatic lighting portrait"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/impact_red.png';
-                }}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
+            <div className="absolute -right-2 sm:right-6 -bottom-6 sm:-bottom-8 w-36 sm:w-44 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-2xl border-2 border-white/90 group">
+              <picture className="contents">
+                <source srcSet="/images/impact_red.webp" type="image/webp" />
+                <img
+                  src="/images/impact_red.png"
+                  alt="Dramatic red neon cinematic portrait"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                />
+              </picture>
             </div>
           </div>
 
