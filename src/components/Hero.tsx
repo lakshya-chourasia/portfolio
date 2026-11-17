@@ -148,9 +148,9 @@ export const Hero: React.FC<HeroProps> = ({
           >
             <div className="w-full aspect-[4/3] bg-neutral-100 overflow-hidden mb-2.5 relative rounded-xs">
               <picture className="contents">
-                <source srcSet="/images/hero_zentix.webp" type="image/webp" />
+                <source srcSet="/images/project_swiftpdf.webp" type="image/webp" />
                 <img
-                  src="/images/hero_zentix.png"
+                  src="/images/project_swiftpdf.png"
                   alt="SwiftPDF Intelligence Suite"
                   loading="eager"
                   decoding="async"

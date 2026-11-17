@@ -202,7 +202,7 @@ export const PROJECTS: Project[] = [
     number: '001',
     title: 'SoundStream — Ad-Free YouTube Background Audio Ecosystem',
     category: '/FastAPI · React Native · Range Requests',
-    image: '/images/hero_zentix.webp',
+    image: '/images/project_soundstream.webp',
     tag: 'High-Performance Audio Streaming Engine',
     description:
       'Zero-ad background music streaming ecosystem with HTTP 206 chunked range-request proxy, lock-screen media controls, and 5-band Web Audio hardware equalizer.',
@@ -230,7 +230,7 @@ export const PROJECTS: Project[] = [
     number: '002',
     title: 'SwiftPDF Intelligence Suite',
     category: '/Next.js 15 · FastAPI',
-    image: '/images/project_zentix.webp',
+    image: '/images/project_swiftpdf.webp',
     tag: 'Enterprise Document Intelligence',
     description:
       'High-performance document intelligence platform offering 37+ PDF manipulation tools with zero persistent disk storage and sub-200ms render latencies.',
@@ -257,7 +257,7 @@ export const PROJECTS: Project[] = [
     number: '003',
     title: 'AuraERP — Cloud College Management Platform',
     category: '/Full-Stack MERN + Supabase',
-    image: '/images/project_lumio.webp',
+    image: '/images/project_auraerp.webp',
     tag: 'Campus Cloud Infrastructure',
     description:
       'Modular full-stack ERP managing student records, attendance, fee ledgers, and academic workflows with hybrid Supabase relational schemas and MongoDB.',
@@ -282,7 +282,7 @@ export const PROJECTS: Project[] = [
     number: '004',
     title: 'CutOut AI — Semantic Segmentation',
     category: '/Computer Vision · AI',
-    image: '/images/project_arkio.webp',
+    image: '/images/project_cutoutai.webp',
     tag: 'Vision Transformer Pipeline',
     description:
       'Vision transformer semantic segmentation pipeline processing 4K assets in under 800ms with fine boundary refinement and alpha-matting.',
