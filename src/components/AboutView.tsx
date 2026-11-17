@@ -47,68 +47,117 @@ export const AboutView: React.FC<AboutViewProps> = ({
         </div>
       </div>
 
-      {/* Horizontal Photo Strip */}
+      {/* Horizontal Photo Strip: Top 5 Anime Character Icons */}
       <div className="w-full overflow-x-auto pb-8 scrollbar-none px-6 sm:px-12">
         <div className="flex items-center gap-4 min-w-[900px] max-w-7xl mx-auto">
-          <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
+          {/* 1. Satoru Gojo */}
+          <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_1.webp" type="image/webp" />
               <img
                 src="/images/about_strip_1.png"
-                alt="Engineering Workstation"
+                alt="Satoru Gojo - Jujutsu Kaisen"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
               />
             </picture>
+            <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
+              <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
+                Satoru Gojo
+              </span>
+              <span className="text-[9px] font-mono text-cyan-300 tracking-wider">
+                Jujutsu Kaisen
+              </span>
+            </div>
           </div>
-          <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
+
+          {/* 2. Monkey D. Luffy */}
+          <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_2.webp" type="image/webp" />
               <img
                 src="/images/about_strip_2.png"
-                alt="Portrait with dynamic lighting"
+                alt="Monkey D. Luffy - One Piece"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
               />
             </picture>
+            <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
+              <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
+                Monkey D. Luffy
+              </span>
+              <span className="text-[9px] font-mono text-amber-300 tracking-wider">
+                One Piece
+              </span>
+            </div>
           </div>
-          <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
+
+          {/* 3. Naruto Uzumaki */}
+          <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_3.webp" type="image/webp" />
               <img
                 src="/images/about_strip_3.png"
-                alt="Collaborative engineering sprint"
+                alt="Naruto Uzumaki - Naruto Shippuden"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
               />
             </picture>
+            <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
+              <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
+                Naruto Uzumaki
+              </span>
+              <span className="text-[9px] font-mono text-[#ff4d15] tracking-wider">
+                Naruto Shippuden
+              </span>
+            </div>
           </div>
-          <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
+
+          {/* 4. Roronoa Zoro */}
+          <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_4.webp" type="image/webp" />
               <img
                 src="/images/about_strip_4.png"
-                alt="System architecture modeling"
+                alt="Roronoa Zoro - One Piece"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
               />
             </picture>
+            <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
+              <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
+                Roronoa Zoro
+              </span>
+              <span className="text-[9px] font-mono text-emerald-400 tracking-wider">
+                One Piece
+              </span>
+            </div>
           </div>
-          <div className="w-1/5 aspect-[3/4] bg-neutral-200 overflow-hidden rounded-xs shadow-md border border-neutral-300">
+
+          {/* 5. Levi Ackerman */}
+          <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_5.webp" type="image/webp" />
               <img
                 src="/images/about_strip_5.png"
-                alt="Developer environment"
+                alt="Levi Ackerman - Attack on Titan"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
               />
             </picture>
+            <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
+              <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
+                Levi Ackerman
+              </span>
+              <span className="text-[9px] font-mono text-purple-300 tracking-wider">
+                Attack on Titan
+              </span>
+            </div>
           </div>
         </div>
       </div>

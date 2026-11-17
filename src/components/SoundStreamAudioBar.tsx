@@ -313,3 +313,4 @@ export const SoundStreamAudioBar: React.FC<SoundStreamAudioBarProps> = ({ onOpen
     </aside>
   );
 };
+
