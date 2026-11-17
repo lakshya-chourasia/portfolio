@@ -47,16 +47,16 @@ export const AboutView: React.FC<AboutViewProps> = ({
         </div>
       </div>
 
-      {/* Horizontal Photo Strip: Top 5 Anime Character Icons */}
+      {/* Horizontal Photo Strip: Unsplash Motion Blur Series */}
       <div className="w-full overflow-x-auto pb-8 scrollbar-none px-6 sm:px-12">
         <div className="flex items-center gap-4 min-w-[900px] max-w-7xl mx-auto">
-          {/* 1. Satoru Gojo */}
+          {/* 1. Red Motion Portrait */}
           <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_1.webp" type="image/webp" />
               <img
                 src="/images/about_strip_1.png"
-                alt="Satoru Gojo - Jujutsu Kaisen"
+                alt="Unsplash Motion Blur - Crimson Neon Shutter Drag"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
@@ -64,21 +64,21 @@ export const AboutView: React.FC<AboutViewProps> = ({
             </picture>
             <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
               <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
-                Satoru Gojo
+                RED AMBIENCE // 001
               </span>
-              <span className="text-[9px] font-mono text-cyan-300 tracking-wider">
-                Jujutsu Kaisen
+              <span className="text-[9px] font-mono text-rose-300 tracking-wider">
+                Unsplash Motion Blur
               </span>
             </div>
           </div>
 
-          {/* 2. Monkey D. Luffy */}
+          {/* 2. Kinetic Portrait */}
           <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_2.webp" type="image/webp" />
               <img
                 src="/images/about_strip_2.png"
-                alt="Monkey D. Luffy - One Piece"
+                alt="Unsplash Motion Blur - Fluid Kinetic Velocity"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
@@ -86,21 +86,21 @@ export const AboutView: React.FC<AboutViewProps> = ({
             </picture>
             <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
               <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
-                Monkey D. Luffy
+                KINETIC DRIFT // 002
               </span>
-              <span className="text-[9px] font-mono text-amber-300 tracking-wider">
-                One Piece
+              <span className="text-[9px] font-mono text-cyan-300 tracking-wider">
+                Unsplash Motion Blur
               </span>
             </div>
           </div>
 
-          {/* 3. Naruto Uzumaki */}
+          {/* 3. Crimson Streak */}
           <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_3.webp" type="image/webp" />
               <img
                 src="/images/about_strip_3.png"
-                alt="Naruto Uzumaki - Naruto Shippuden"
+                alt="Unsplash Motion Blur - Crimson Illumination"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
@@ -108,21 +108,21 @@ export const AboutView: React.FC<AboutViewProps> = ({
             </picture>
             <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
               <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
-                Naruto Uzumaki
+                CRIMSON STREAK // 003
               </span>
-              <span className="text-[9px] font-mono text-[#ff4d15] tracking-wider">
-                Naruto Shippuden
+              <span className="text-[9px] font-mono text-amber-300 tracking-wider">
+                Unsplash Motion Blur
               </span>
             </div>
           </div>
 
-          {/* 4. Roronoa Zoro */}
+          {/* 4. Noir Shutter */}
           <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_4.webp" type="image/webp" />
               <img
                 src="/images/about_strip_4.png"
-                alt="Roronoa Zoro - One Piece"
+                alt="Unsplash Motion Blur - Monochrome Shutter Drag"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
@@ -130,21 +130,21 @@ export const AboutView: React.FC<AboutViewProps> = ({
             </picture>
             <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
               <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
-                Roronoa Zoro
+                NOIR VELOCITY // 004
               </span>
-              <span className="text-[9px] font-mono text-emerald-400 tracking-wider">
-                One Piece
+              <span className="text-[9px] font-mono text-neutral-300 tracking-wider">
+                Unsplash Motion Blur
               </span>
             </div>
           </div>
 
-          {/* 5. Levi Ackerman */}
+          {/* 5. Prismatic Glow */}
           <div className="w-1/5 aspect-[3/4] bg-neutral-900 overflow-hidden rounded-xs shadow-md border border-neutral-300 relative group">
             <picture className="contents">
               <source srcSet="/images/about_strip_5.webp" type="image/webp" />
               <img
                 src="/images/about_strip_5.png"
-                alt="Levi Ackerman - Attack on Titan"
+                alt="Unsplash Motion Blur - Chromatic Light Art"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
@@ -152,10 +152,10 @@ export const AboutView: React.FC<AboutViewProps> = ({
             </picture>
             <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
               <span className="text-[11px] font-black uppercase tracking-tight text-white leading-tight font-mono">
-                Levi Ackerman
+                PRISMATIC GLOW // 005
               </span>
               <span className="text-[9px] font-mono text-purple-300 tracking-wider">
-                Attack on Titan
+                Unsplash Motion Blur
               </span>
             </div>
           </div>
