@@ -198,36 +198,8 @@ export const SKILLS_ARSENAL: SkillCategory[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'soundstream',
-    number: '001',
-    title: 'SoundStream — Ad-Free YouTube Background Audio Ecosystem',
-    category: '/FastAPI · React Native · Range Requests',
-    image: '/images/project_soundstream.webp',
-    tag: 'High-Performance Audio Streaming Engine',
-    description:
-      'Zero-ad background music streaming ecosystem with HTTP 206 chunked range-request proxy, lock-screen media controls, and 5-band Web Audio hardware equalizer.',
-    year: '2025',
-    featured: true,
-    techStack: [
-      'FastAPI',
-      'Python',
-      'yt-dlp',
-      'React Native',
-      'Expo',
-      'React 19',
-      'Web Audio API',
-      'Docker',
-    ],
-    architectureHighlights: [
-      'Direct high-bitrate YouTube audio stream extraction with sub-100ms URL resolution via FastAPI backend.',
-      'HTTP 206 Partial Content range-request streaming proxy eliminating CORS restrictions and enabling instant timeline seeking.',
-      'True OS-level background audio playback on iOS (UIBackgroundModes), Android (FOREGROUND_SERVICE), and Web (MediaSession API).',
-      'Interactive 5-band Web Audio hardware equalizer, real-time waveform visualizers, synced lyrics, and sleep timer.',
-    ],
-  },
-  {
     id: 'swiftpdf',
-    number: '002',
+    number: '001',
     title: 'SwiftPDF Intelligence Suite',
     category: '/Next.js 15 · FastAPI',
     image: '/images/project_swiftpdf.webp',
@@ -254,7 +226,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'auraerp',
-    number: '003',
+    number: '002',
     title: 'AuraERP — Cloud College Management Platform',
     category: '/Full-Stack MERN + Supabase',
     image: '/images/project_auraerp.webp',
@@ -279,7 +251,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'cutoutai',
-    number: '004',
+    number: '003',
     title: 'CutOut AI — Semantic Segmentation',
     category: '/Computer Vision · AI',
     image: '/images/project_cutoutai.webp',
